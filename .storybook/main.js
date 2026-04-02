@@ -13,6 +13,16 @@ const config = {
     "@storybook/addon-docs",
     "@storybook/addon-onboarding"
   ],
-  "framework": "@storybook/react-vite"
+  "framework": "@storybook/react-vite",
+  async viteFinal(config) {
+    return {
+      ...config,
+      build: {
+        ...config.build,
+        minify: false, // This prevents the 'wH[e]' renaming error
+        sourcemap: true,
+      },
+    };
+  },
 };
 export default config;
