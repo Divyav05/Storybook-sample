@@ -23,7 +23,7 @@ export const TodoItem = ({ task, isCompleted, onToggle, onDelete }) => {
         {task}
       </span>
       
-      <button onClick={onDelete} style={{ backgroundColor: 'red', color: 'white', border: 'none', borderRadius: '4px' }}>
+      <button onClick={onDelete} style={{ backgroundColor: 'red', color: 'black', border: 'none', borderRadius: '4px' }}>
         Delete
       </button>
     </div>

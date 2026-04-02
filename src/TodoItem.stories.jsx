@@ -3,6 +3,7 @@ import { TodoItem } from './TodoItem';
 export default {
   title: 'My Todo App/TodoItem', // The sidebar name
   component: TodoItem,
+  tags: ['autodocs'],
 };
 
 // This is Story #1: The default state
