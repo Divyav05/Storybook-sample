@@ -1,26 +1,34 @@
+import { join, dirname } from "path";
+
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
-  stories: ["../src/TodoItem.stories.jsx"], // Point directly to the file
-  addons: ["@chromatic-com/storybook", "@storybook/addon-essentials"],
+  // Use a very specific pattern to help the importer find the file
+  stories: ["../src/TodoItem.stories.jsx"], 
+  addons: [
+    "@chromatic-com/storybook",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+  ],
   framework: {
     name: "@storybook/react-vite",
     options: {},
   },
   async viteFinal(config) {
-    const { mergeConfig } = await import('vite');
-    return mergeConfig(config, {
+    return {
+      ...config,
+      // Force Vite to preserve function names and paths
       build: {
-        minify: false, // STOPS the wH[e] renaming
-        terserOptions: { mangle: false }, // Double protection
+        ...config.build,
+        minify: false,
         sourcemap: false,
       },
-      // This helps with path resolution in some Windows environments
+      // Ensure the 'src' directory is resolved correctly regardless of OS
       resolve: {
         alias: {
-          '@': '/src',
+          "@": join(process.cwd(), "src"),
         },
       },
-    });
+    };
   },
 };
 export default config;
