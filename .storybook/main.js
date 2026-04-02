@@ -1,24 +1,17 @@
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
-  // Use a more direct path to avoid "importer" resolution errors
-  stories: ["../src/TodoItem.stories.jsx"], 
+  stories: ["../src/*.stories.@(js|jsx|ts|tsx)"], // Simplified glob
   addons: [
     "@chromatic-com/storybook",
     "@storybook/addon-essentials",
   ],
   framework: {
     name: "@storybook/react-vite",
-    options: {},
-  },
-  async viteFinal(config) {
-    return {
-      ...config,
-      build: {
-        ...config.build,
-        minify: false, // Keep this off for now
-        sourcemap: true,
+    options: {
+      builder: {
+        viteConfigPath: ".storybook/vite.config.js", // We will create this next
       },
-    };
+    },
   },
 };
 export default config;
