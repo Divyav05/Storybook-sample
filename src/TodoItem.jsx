@@ -16,7 +16,7 @@ export const TodoItem = ({ task, isCompleted, onToggle, onDelete }) => {
       
       <span style={{ 
         flex: 1, // Tells the text to take up all available middle space
-        //textAlign: 'left', // Aligns text to the left
+        textAlign: 'left', // Aligns text to the left
         textDecoration: isCompleted ? 'line-through' : 'none',
         wordBreak: 'break-word' // Ensures long words don't overflow
       }}>
