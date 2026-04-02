@@ -4,7 +4,7 @@ export const TodoItem = ({ task, isCompleted, onToggle, onDelete }) => {
       display: 'flex', 
       alignItems: 'flex-start', // Keeps items at the top
       gap: '12px', 
-      padding: '10px 0',
+      padding: '15px 0',
       borderBottom: '1px solid #eee' 
     }}>
       <input 
