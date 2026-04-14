@@ -21,7 +21,7 @@ export const Finished = {
 
 export const DesktopView = {
   args: {
-    task: 'Clean the kitchen, wash the dishes, and take out the trash',
+    task: 'Learn Storybook, and make sure it works on desktop view to see the full layout of the TodoItem component.',
     isCompleted: false,
   },
 };
