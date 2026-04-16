@@ -1,29 +1,50 @@
 export const TodoItem = ({ task, isCompleted, onToggle, onDelete }) => {
   return (
-    <div style={{
-      display: 'flex',
-      alignItems: 'flex-start', // Keeps items at the top
-      gap: '12px',
-      padding: '15px 0',
-      borderBottom: '1px solid #eee'
-    }}>
-      <input
-        type="checkbox"
-        checked={isCompleted}
-        onChange={onToggle}
-        style={{ marginTop: '4px' }} // Aligns with first line of text
-      />
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'flex-start',
+        gap: '12px',
+        padding: '15px 0',
+        borderBottom: '1px solid #eee'
+      }}
+    >
+      {/* Accessible checkbox with label */}
+      <label style={{ display: 'flex', gap: '12px', flex: 1, cursor: 'pointer' }}>
 
-      <span style={{
-        flex: 1, // Tells the text to take up all available middle space
-        textAlign: 'left', // Aligns text to the left
-        textDecoration: isCompleted ? 'line-through' : 'none',
-        wordBreak: 'break-word' // Ensures long words don't overflow
-      }}>
-        {task}
-      </span>
+        <input
+          type="checkbox"
+          checked={isCompleted}
+          onChange={onToggle}
+          style={{ marginTop: '4px' }}
+        />
 
-      <button onClick={onDelete} style={{ backgroundColor: 'red', color: 'white', border: 'none', borderRadius: '4px' }}>
+        <span
+          style={{
+            textAlign: 'left',
+            textDecoration: isCompleted ? 'line-through' : 'none',
+            wordBreak: 'break-word',
+            color: isCompleted ? '#666' : '#000'
+          }}
+        >
+          {task}
+        </span>
+
+      </label>
+
+      {/* Delete button with accessibility improvement */}
+      <button
+        onClick={onDelete}
+        style={{
+          backgroundColor: '#b0aa00',
+          color: 'white',
+          border: 'none',
+          borderRadius: '4px',
+          padding: '6px 10px',
+          cursor: 'pointer'
+        }}
+        aria-label={`Delete task: ${task}`}
+      >
         Delete
       </button>
     </div>

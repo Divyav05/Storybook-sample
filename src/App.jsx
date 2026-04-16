@@ -46,7 +46,7 @@ function App() {
 
       {/* List Area */}
       <div>
-        {todos.length === 0 && <p style={{ color: '#888' }}>No tasks yet!</p>}
+        {todos.length === 0 && <p style={{ color: '#666' }}>No tasks yet!</p>}
         {todos.map(todo => (
           <TodoItem 
             key={todo.id}

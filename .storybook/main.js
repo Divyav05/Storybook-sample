@@ -1,4 +1,5 @@
-import path from 'path';
+// This file has been automatically migrated to valid ESM format by Storybook.
+import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -11,7 +12,7 @@ const config = {
     "@chromatic-com/storybook",
     "@storybook/addon-onboarding",
     "@storybook/addon-a11y",
-    "@storybook/addon-docs",
+    "@storybook/addon-docs"
   ],
   framework: {
     name: "@storybook/react-vite",
